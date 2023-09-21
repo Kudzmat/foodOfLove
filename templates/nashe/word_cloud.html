@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ album }} Cloud
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <img class="d-block w-100" src="data:image/png;base64,{{ banner }}" alt="Album Banner">
+    </div>
+    <hr>
+    <h1 class="text-center">{{ album }}'s Word Cloud</h1>
+    <br>
+    <div class="text-center">  <!-- Center-align the word cloud -->
+        <img src="data:image/png;base64,{{ word_cloud }}" alt="Word Cloud" style="max-width: 100%; height: auto;">  <!-- Set max-width and auto height for responsiveness -->
+    </div>
+{% endblock %}
