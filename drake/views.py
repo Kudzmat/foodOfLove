@@ -33,10 +33,6 @@ def search_drake(request):
 
 
 def get_projects_cloud(request):
-    banner_path = os.path.join('static', 'images', 'albums', 'drake', '8.png')
-
-    with open(banner_path, 'rb') as image_file:
-        banner = base64.b64encode(image_file.read()).decode("utf-8")
 
     album = 'All Projects'
 
@@ -60,11 +56,10 @@ def get_projects_cloud(request):
 
     context = {
         'word_cloud': encoded_image,
-        'banner': banner,
         'album': album
     }
 
-    return render(request, 'nashe/word_cloud.html', context=context)
+    return render(request, 'drake/projects_cloud.html', context=context)
 
 
 # getting word cloud for singular album

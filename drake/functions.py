@@ -31,23 +31,27 @@ def get_project_lyrics():
         if lyrics:
             proj_lyrics.append(lyrics)
 
-        else:
-            print("No lyrics here")
-
     return proj_lyrics
 
 
 # Processing the lyrics by cleaning the up
 def process_lyrics(lyrics_list):
     processed = []
-    custom_stopwords = ['yeah', 'oh', 'nigga', 'chorus', 'verse', 'Drake', 'drake', 'niggas']
+    custom_stopwords = ['yeah', 'oh', 'nigga', 'chorus', 'verse', 'Drake', 'drake', 'niggas', 'ai', 'wan', 'na', 'ca']
     for lyrics in lyrics_list:
-        new_lyrics = lyrics.lower()
-        tokens = word_tokenize(new_lyrics)
-        # Remove punctuation and stopwords (both English and custom)
-        tokens = [word for word in tokens if word.isalpha() and word.lower() not in stopwords.words(
-            'english') and word.lower() not in custom_stopwords]
-        processed.extend(tokens)  # Extend the list with the tokens
+
+        if type(lyrics) == str:
+            new_lyrics = lyrics.lower()
+            tokens = word_tokenize(new_lyrics)
+
+            # Remove punctuation and stopwords (both English and custom)
+            tokens = [word for word in tokens if word.isalpha() and word.lower() not in stopwords.words(
+                'english') and word.lower() not in custom_stopwords]
+            processed.extend(tokens)  # Extend the list with the tokens
+
+        else:
+            pass
+
     return processed
 
 

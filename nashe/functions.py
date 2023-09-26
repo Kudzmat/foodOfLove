@@ -32,16 +32,13 @@ def get_project_lyrics():
         if lyrics:
             proj_lyrics.append(lyrics)
 
-        else:
-            print("No lyrics here")
-
     return proj_lyrics
 
 
 # Processing the lyrics by cleaning the up
 def process_lyrics(lyrics_list):
     processed = []
-    custom_stopwords = ['yeah', 'ooh', 'nigga', 'ca', 'ai', 'shot', 'niggas', 'na']
+    custom_stopwords = ['yeah', 'ooh', 'nigga', 'ca', 'ai', 'shot', 'niggas', 'na', 'wan']
     for lyrics in lyrics_list:
         new_lyrics = lyrics.lower()
         tokens = word_tokenize(new_lyrics)
