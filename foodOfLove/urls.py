@@ -21,5 +21,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name='home'),
     path("tinashe/", include('nashe.urls')),
+    path("drake/", include('drake.urls')),
 
 ]

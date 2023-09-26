@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Search Album
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <img class="d-block w-100" src="{% static 'images/albums/drake/7.png' %}">
+    </div>
+    <hr>
+    <h1 class="text-center">Search For A Drake Album To Analyse</h1>
+    <br>
+    <div class="text-center">  <!-- Center-align the word cloud -->
+          <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+              <button type="submit" class="btn btn-primary btn-sm">Search Album</button>
+                </form>
+    </div>
+{% endblock %}
