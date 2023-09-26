@@ -21,7 +21,6 @@ def get_projects_cloud(request):
 
     # get selected album's lyrics
     proj_Lyrics = get_project_lyrics()
-    print(proj_Lyrics)
 
     # clean up lyrics
     clean_lyrics = process_lyrics(proj_Lyrics)

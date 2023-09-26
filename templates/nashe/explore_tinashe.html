@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}
+Tinashe
+{% endblock %}
+
+{% block content %}
+<h3> Tinashe </h3>
+<section>
+      <div class="container">
+          <div class="row content">
+            <div class="col-lg-6" data-aos="fade-right">
+            <img src="{% static 'images/nashe.jpeg' %}" class="rounded-circle" width="400" height="300">
+          </div>
+          </div>
+          <hr>
+        <h2>Select An Album to Analyse</h2>
+        <div class="row">
+          <div class="col-sm-4">
+            <a href="{% url 'nashe:get_album_cloud' encoded_album='Songs%20For%20You' %}">
+              <img src="{% static 'images/albums/nashe/SFY.jpeg' %}" class="img-fluid">
+            </a>
+            <figcaption><strong>Songs For You</strong></figcaption>
+          </div>
+            <div class="col-sm-4">
+            <a href="{% url 'nashe:get_album_cloud' encoded_album='333' %}">
+              <img src="{% static 'images/albums/nashe/333.jpeg' %}" class="img-fluid">
+            </a>
+            <figcaption><strong>333</strong></figcaption>
+          </div>
+            <div class="col-sm-4">
+            <a href="{% url 'nashe:get_album_cloud' encoded_album='BBANG3L' %}">
+              <img src="{% static 'images/albums/nashe/BB:Ang3l.jpeg' %}" class="img-fluid">
+            </a>
+            <figcaption><strong>BB/Ang3l</strong></figcaption>
+          </div>
+        </div>
+          <br><br>
+           <a class="btn btn-primary btn-lg" href="{% url 'nashe:get_projects_cloud' %}" role="button">Analyse All Projects</a>
+    </div>
+    </section>
+{% endblock %}

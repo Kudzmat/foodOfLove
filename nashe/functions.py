@@ -29,7 +29,11 @@ def get_project_lyrics():
 
     for index, row in TINASHE_DATA.iterrows():
         lyrics = row['lyrics']
-        proj_lyrics.append(lyrics)
+        if lyrics:
+            proj_lyrics.append(lyrics)
+
+        else:
+            print("No lyrics here")
 
     return proj_lyrics
 
