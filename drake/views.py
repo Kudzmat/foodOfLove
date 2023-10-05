@@ -11,10 +11,6 @@ from .forms import *
 
 # Create your views here.
 def search_drake(request):
-    # setting banner image
-    banner_path = os.path.join('static', 'images', 'albums', 'drake', '7.png')
-    with open(banner_path, 'rb') as image_file:
-        banner = base64.b64encode(image_file.read()).decode("utf-8")
 
     form = AlbumSearchForm()
     album = ""
@@ -67,6 +63,80 @@ def get_album_cloud(request, encoded_album):
     # Decode the album name from the URL
     album = unquote(encoded_album)
 
+    # so far gone
+    if album == "So Far Gone":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '19.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # thank me later
+    elif album == "Thank Me Later":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '12.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # take care
+    elif album == "Take Care":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '14.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # nwts
+    elif album == "Nothing Was the Same":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '9.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # IYRTITL
+    elif album == "If You're Reading this It's too Late":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '13.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # Views
+    elif album == "Views":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '11.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # More Life
+    elif album == "More Life":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '16.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # Dark lane demo
+    elif album == "Dark Lane Demo Tapes":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '15.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # honestly nevermind
+    elif album == "Honestly Nevermind":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '17.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # clb
+    elif album == "Certified Lover Boy":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '10.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # redirect to home page if album is not found
+    else:
+        redirect('home')
+
     # get selected album's lyrics
     album_Lyrics = get_album_lyrics(album)
 
@@ -87,7 +157,8 @@ def get_album_cloud(request, encoded_album):
 
     context = {
         'word_cloud': encoded_image,
-        'album': album
+        'album': album,
+        'banner': banner
     }
 
     return render(request, 'drake/drake_cloud.html', context=context)
