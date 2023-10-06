@@ -37,7 +37,7 @@ def get_project_lyrics():
 # Processing the lyrics by cleaning the up
 def process_lyrics(lyrics_list):
     processed = []
-    custom_stopwords = ['yeah', 'oh', 'nigga', 'chorus', 'verse', 'Drake', 'drake', 'niggas', 'ai', 'wan', 'na', 'ca', "fuck", "shit"]
+    custom_stopwords = ['yeah', 'oh', 'nigga', 'chorus', 'verse', 'Drake', 'drake', 'niggas', 'started', 'bottom', 'ai', 'wan', 'na', 'ca', "fuck", "shit"]
     for lyrics in lyrics_list:
 
         if type(lyrics) == str:

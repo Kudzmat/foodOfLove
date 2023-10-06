@@ -18,7 +18,8 @@
                 {{ form.as_p }}
               <button type="submit" class="btn btn-primary btn-sm">Search Album</button>
                 </form>
+        <br>
+        <a class="btn btn-primary btn-lg" href="{% url 'drake:get_projects_cloud' %}" role="button">Analyse All Projects</a>
     </div>
-<br><br><br>
-<a class="btn btn-primary btn-lg" href="{% url 'drake:get_projects_cloud' %}" role="button">Analyse All Projects</a>
+
 {% endblock %}
