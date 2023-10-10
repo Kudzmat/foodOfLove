@@ -9,16 +9,26 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 DRAKE_DATA = pd.read_csv('data/drake_data.csv')
+NEW_DRAKE = pd.read_csv('data/dogs.csv')
 
 
 # Get album lyrics from user input
 def get_album_lyrics(album):
+    other_albums = ['Her Loss', 'For All The Dogs', 'Honestly Nevermind']  # albums not in DRAKE_DATA
     album_lyrics = []  # empty list will hold all the lyrics from an album by track
 
-    for index, row in DRAKE_DATA.iterrows():
-        if row['album'] == album:
-            lyrics = row['lyrics']
-            album_lyrics.append(lyrics)
+    if album in other_albums:
+        for index,row in NEW_DRAKE.iterrows():
+            if row['album'] == album:
+                lyrics = row['lyrics']
+                album_lyrics.append(lyrics)
+    else:
+
+        # check for album data in DRAKE_DATA
+        for index, row in DRAKE_DATA.iterrows():
+            if row['album'] == album:
+                lyrics = row['lyrics']
+                album_lyrics.append(lyrics)
 
     return album_lyrics
 
@@ -37,7 +47,8 @@ def get_project_lyrics():
 # Processing the lyrics by cleaning the up
 def process_lyrics(lyrics_list):
     processed = []
-    custom_stopwords = ['yeah', 'oh', 'nigga', 'chorus', 'verse', 'Drake', 'drake', 'niggas', 'started', 'bottom', 'ai', 'wan', 'na', 'ca', "fuck", "shit"]
+    custom_stopwords = ['yeah', 'oh', 'nigga', 'chorus', 'verse', 'Drake', 'drake', 'niggas', 'started', 'bottom', 'ai',
+                        'wan', 'na', 'ca', "fuck", "shit", "bitch", "ass", "ayy"]
     for lyrics in lyrics_list:
 
         if type(lyrics) == str:
@@ -59,7 +70,7 @@ def check_frequency(tokens):
     lyrics_count = {}  # This dictionary will hold a word and the number of times it appears
     word_frequency = Counter(tokens)
     # Find the 10 most common words
-    most_common_words = dict(word_frequency.most_common(20))
+    most_common_words = dict(word_frequency.most_common(25))
 
     # Print the most common words and their frequencies
     for word, num in most_common_words.items():

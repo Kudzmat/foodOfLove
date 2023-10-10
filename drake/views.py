@@ -133,6 +133,20 @@ def get_album_cloud(request, encoded_album):
         with open(banner_path, 'rb') as image_file:
             banner = base64.b64encode(image_file.read()).decode("utf-8")
 
+    # for all the dogs
+    elif album == "For All The Dogs":
+        banner_path = os.path.join('static', 'images', 'drake-banners', 'dogs.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # her loss
+    elif album == "Her Loss":
+        banner_path = os.path.join('static', 'images', 'drake-banners', '18.png')
+
+        with open(banner_path, 'rb') as image_file:
+            banner = base64.b64encode(image_file.read()).decode("utf-8")
+
     # redirect to home page if album is not found
     else:
         redirect('home')
